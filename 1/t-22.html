@@ -1,0 +1,54 @@
+<!-- Валентинова Юлия Олеговна М8О-108М
+ Вариант 22 По кнопке на форме запрашиваются 2 числа и выдается их наибольший общий делитель.
+ Выбор варианта доступа (а) = 2
+Выбор варианта способа назначения (б) = 2.
+Доступ к элементам (а) обеспечить с помощью 2) атрибута идентификатора элемента;
+Способ назначения (б) обработчиков событий: 2) cвойство “elem.onclick = function”;
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="t-22.css">
+</head>
+<body>
+<div class="body--inner">
+    <div class="content">
+        <h1>Лабораторная работа №1</h1>
+        <h3>Вариант 22</h3>
+        <h3>По кнопке на форме запрашиваются 2 числа и выдается их наибольший общий делитель.</h3>
+        <div class="content__input">
+            <input value="10">
+            <p>и</p>
+            <input value="5">
+        </div>
+        <button> Посчитать </button>
+        <div class="content__answer">
+            <p>НОД: </p>
+            <input disabled value="5">
+        </div>
+
+    </div>
+    <div class="footer">
+        <p>©2020 Валентинова Юлия Олеговна</p>
+        <p>М8О-108М</p>
+    </div>
+</div>
+
+<script>
+    // Вычисляем наибольший общий делитель
+    function nod(n, m) {
+        if(m > 0) {
+            var k = n%m;
+            return nod(m, k);
+        }
+        else {
+            return abs(n);
+        }
+    }
+
+</script>
+</body>
+</html>
