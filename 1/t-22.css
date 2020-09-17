@@ -1,11 +1,11 @@
-.body--inner{
+.body__inner{
     display: flex;
     flex-direction: column;
-    font-family: "Calibri", sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     height: 100%;
-    width: 70%;
     margin: auto;
-    background-color: whitesmoke;
+    background-color: rgb(247, 247, 247);
+    font-size: 20px;
 }
 
 html,body{
@@ -13,47 +13,79 @@ html,body{
     margin: 0;
 }
 
-.body--inner h1,h2,h3{
-    color: slategrey;
+.body__inner h1,h2,h3{
+    color: #999999;
 }
 
 .content{
     flex: 1 0 auto;
-    margin: auto;
+    margin: 1rem auto;
     text-align: center;
+    width: 52%;
 }
 
-.content__task{
+.content__card{
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.2); 
+    border-radius: 2%;
+    margin: 3rem;
+    padding: 5rem;
+}
 
+.content__form{
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
 }
 
 .content__input{
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    margin-top: 4rem;
 }
 
 .content__answer{
     display: flex;
     justify-content: center;
+    margin: 1rem;
 }
 
 .content button{
     color: white;
-    border: #b5b4b4;
-    border-radius: 0;
+    background-color: rgb(88, 140, 218);
+    border: #D1D2D6;
+    border-radius: 2%;
+    font-size: 2.3rem;
+    margin: 1rem auto;
+    padding: 1rem 2rem ;
+}
+
+.content p,input{
+    font-size: 1.8rem;
+    font-weight: 200;
+    text-align: center;
+    color: rgb(82, 80, 80);
 }
 
 .content input{
-    border-radius: 0;
-    border: #b5b4b4;
+    border-radius: 2%;
+    border: #D1D2D6 0.3rem solid;
+    width: 10rem;
+    margin: 0 1rem;
+}
+
+.content p{
+    padding: 1rem 0;
+    margin: 0.5rem 0.2rem;
 }
 
 .footer {
     flex: 0 0 auto;
-    color: #b5b4b4;
+    color: #D1D2D6;
     border-top: #d7d7d7 0.01rem solid;
     text-transform: uppercase;
     text-align: center;
+    font-size: 1.5rem;
 }
 
 .footer p{
