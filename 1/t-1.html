@@ -1,0 +1,73 @@
+<!-- Валентинова Юлия Олеговна М8О-108М
+ Вариант 22 По кнопке на форме запрашиваются 2 числа и выдается их наибольший общий делитель.
+ Выбор варианта доступа (а) = 2
+Выбор варианта способа назначения (б) = 2.
+Доступ к элементам (а) обеспечить с помощью 2) атрибута идентификатора элемента;
+Способ назначения (б) обработчиков событий: 2) cвойство “elem.onclick = function”;
+
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="t-1.css" />
+  </head>
+  <body>
+    <div class="body__inner">
+      <div class="content">
+        <h1>Лабораторная работа №1</h1>
+        <div class="content__card">
+          <h2>Вариант 22</h2>
+          <h2>
+            По кнопке на форме запрашиваются 2 числа и выдается их наибольший
+            общий делитель.
+          </h2>
+          <h3>
+            Доступ к элементам (а) обеспечить с помощью 2) атрибута
+            идентификатора элемента; Способ назначения (б) обработчиков событий:
+            2) cвойство “elem.onclick = function”;
+          </h3>
+          <div class="content__answer">
+            <p>НОД:</p>
+            <p id="res"></p>
+          </div>
+          <button id="btn">Посчитать</button>
+        </div>
+      </div>
+      <footer>
+        <p>©2020 Валентинова Юлия Олеговна</p>
+        <p>М8О-108М</p>
+      </footer>
+    </div>
+
+    <script>
+      window.onload = function () {
+        var btn = document.getElementById("btn");
+
+        btn.onclick = function () {
+            var first = prompt('Введите первое число:');
+            var second = prompt('Введите второе число:');
+            var res = document.getElementById("res");
+
+            if (isNaN(first)||isNaN(second)){
+                res.innerHTML = "Ошибка ввода";
+            }
+            else{
+                res.innerHTML = nod(first, second);
+            }
+            
+        };
+      };
+
+      function nod(n, m) {
+        if (m > 0) {
+          var k = n % m;
+          return nod(m, k);
+        } else {
+          return Math.abs(n);
+        }
+      }
+    </script>
+  </body>
+</html>
