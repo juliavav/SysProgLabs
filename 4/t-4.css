@@ -1,0 +1,140 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background-color: rgb(247, 247, 247);
+}
+
+.body__inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: auto;
+  font-size: 18px;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h1,
+h2,
+h3 {
+  color: #6d6d6d;
+  font-weight: 200;
+}
+
+.content {
+  flex: 1 0 auto;
+  margin: 1rem auto;
+  text-align: center;
+  width: 70%;
+}
+
+.content__card {
+  background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 2%;
+  margin: 2rem;
+  padding: 3rem 5rem;
+}
+
+.content__form {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.input__form {
+  display: flex;
+  justify-content: center;
+}
+
+.radio__form {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+td {
+  padding: 1rem;
+}
+
+form {
+  border: #d7d7d7 0.01rem solid;
+}
+
+label {
+  font-size: 1.5rem;
+  margin-right: 1rem;
+}
+
+.content .inp-text {
+  font-size: 1.5rem;
+  font-weight: 200;
+  text-align: center;
+  color: rgb(82, 80, 80);
+  border-radius: 2%;
+  border: #d1d2d6 0.3rem solid;
+  width: 6rem;
+}
+
+.enter {
+    width: 26rem;
+  height: 5rem;
+  margin: auto;
+  background-image: url(https://roddom5.kz/wp-content/uploads/2017/01/pink-pattern-wallpaper-tumblr.jpg);
+}
+
+.delay {
+  width: 25rem;
+  height: 10rem;
+  margin: auto;
+  display: inline-block; /* блочно-строчные элементы (выстраиваем элементы в линейку) */
+  background-image: url("https://i.pinimg.com/474x/14/a3/70/14a37028722dbbad0b3e02b0b1fcbb83.jpg");
+}
+
+button {
+  color: white;
+  background-color: rgb(236, 236, 236);
+  border: #d1d2d6;
+  border-radius: 2%;
+  color: rgb(82, 80, 80);
+  font-weight: 200;
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+ul {
+  text-align: left;
+}
+
+li {
+  margin: 1px;
+}
+
+.btn-beauty {
+  color: rgb(255, 255, 255);
+  background: linear-gradient(to top, #ffffff 0%, #ff8cf0 36%, #ff008c 100%);
+  border: solid 0.1rem rebeccapurple;
+  border-radius: 5%;
+  font-weight: 200;
+  font-size: 1.1rem;
+  text-align: center;
+  height: 3rem;
+}
+
+footer {
+  flex: 0 0 auto;
+  color: #bdbdbe;
+  border-top: #d7d7d7 0.01rem solid;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+footer p {
+  margin: 0.7rem;
+}

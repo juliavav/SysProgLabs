@@ -1,0 +1,46 @@
+<head>
+  <script>
+    function fload() {
+      document.linkColor = "FF0000";
+    }
+    function f0() {
+      document.bgColor = frm1.a1.value;
+    }
+    function f2() {
+      // alert('Это я!')
+      x1 = 1 * frm1.v1.value;
+      x2 = 1 * frm1.v2.value;
+      x = x1 + x2;
+      y = window.prompt("y=");
+      frm1.result.value = y;
+    }
+    function f3() {
+      w1 = open(
+        "http://www.javascript.ru",
+        "JS",
+        "toolbar=no,menubar=no,width=400,height=300"
+      );
+    }
+  </script>
+</head>
+<body onload="fload()">
+  <a href="www.fa.ru">www.fa.ru</a>
+  <form name="frm1">
+    x=<input type="text" value="22" name="v1" /> <br />y=<input
+      value="33"
+      size="3"
+      name="v2"
+    />
+    <br />x+y<input name="result" /> <br /><input
+      type="button"
+      value="Нажми на меня"
+      onclick="f2()"
+    />
+    <br /><input type="button" value="Открыть окно" onclick="f3()" />
+    <br /><input type="color" name="a1" onclick="f0()" /> <br /><input
+      type="button"
+      value="Изменить фон"
+      onclick="f0()"
+    />
+  </form>
+</body>

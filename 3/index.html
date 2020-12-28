@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+      body {
+        margin: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <a
+      href="https://developer.mozilla.org/ru/docs/Web/API/Document/querySelector"
+      >querySelector</a>
+    <a
+      href="https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify"
+      >JSON/stringify</a>
+    <a
+      href="https://developer.mozilla.org/ru/docs/Web/API/EventTarget/addEventListenerhttps://developer.mozilla.org/ru/docs/Web/API/EventTarget/addEventListener"
+      >addEventListener</a>
+    <a href="https://learn.javascript.ru/forms-controls">forms-controls</a>
+    <a
+      href="https://webformyself.com/kak-pojmat-sobytie-nazhatiya-enter-v-pole-input/"
+      >Enter</a>
+    <br /><br />
+    <form>
+      <input type="button" value="Очистить" onclick="fclear()" />
+      <br />
+      <input id="item" placeholder="Введите значение" />
+      <input type="button" value="Добавить" onclick="fadd()" />
+    </form>
+    <h2>Справочник</h2>
+    <ul id="List"></ul>
+    <script>
+      function fadd() {
+        // добавить
+        itemsArray.push(input.value);
+        localStorage.setItem("items", JSON.stringify(itemsArray));
+        const li = document.createElement("li");
+        li.textContent = input.value;
+        ul.appendChild(li);
+        input.value = "";
+      }
+      function fclear() {
+        // очистить
+        localStorage.clear();
+        while (ul.firstChild) ul.removeChild(ul.firstChild);
+        itemsArray = [];
+      }
+
+      const form = document.querySelector("form");
+      const ul = document.getElementById("List");
+      const input = document.getElementById("item");
+      let itemsArray = localStorage.getItem("items")
+        ? JSON.parse(localStorage.getItem("items"))
+        : [];
+
+      for (i = 0; i < itemsArray.length; i++) {
+        const li = document.createElement("li");
+        li.textContent = itemsArray[i];
+        ul.appendChild(li);
+      }
+    </script>
+  </body>
+</html>

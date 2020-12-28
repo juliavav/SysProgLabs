@@ -1,0 +1,92 @@
+<!-- Валентинова Юлия Олеговна М8О-108М
+  https://juliavav.github.io/
+  Вариант 16
+В HTML-документе определены 2 формы.
+На первой управляющие кнопки и поля ввода, вторая  - пустая.
+При нажатии на кнопки первой формы на второй форме генерируются элементы (а) Несколько радиокнопок и текст.
+Параметры и количество элементов определяются в элементах 1-й формы(б) В элементе INPUT задается число кнопок,
+а также заданы в виде массивов на JavaScript.
+После построения элементов на второй форме по некоторым кнопкам/элементам
+можно произвести некоторые действия (в)По переключении кнопок изменяется цвет текста, результаты которых отображаются на 2-форме.
+Для генерации элементов и вывода результатов использовать свойство innerHTML.
+Текст задан в скрипте, значения кнопок - в массиве
+Дополнительно :
+a)    (по выбору) добавить возможность с использованием document.images, document.location, links(+свойства), document.history, window.open(+параметры)
+b)	привести пример использования события из таблицы http://www.chernyshov.com/trwp/tags_event.htm   (по номеру варианта)
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="t-2.css" />
+  </head>
+  <body>
+    <div class="body__inner">
+      <div class="content">
+        <h1>Лабораторная работа №2</h1>
+        <div class="content__card">
+          <h2>Вариант 16</h2>
+          <h3>
+            В HTML-документе определены 2 формы. На первой управляющие кнопки и
+            поля ввода, вторая - пустая. При нажатии на кнопки первой формы на
+            второй форме генерируются элементы <b>(а) Несколько радиокнопок и
+            текст</b>. Параметры и количество элементов определяются в элементах 1-й
+            формы <b> (б) В элементе INPUT задается число кнопок, а также заданы в
+            виде массивов на JavaScript</b>. После построения элементов на второй
+            форме по некоторым кнопкам/элементам можно произвести некоторые
+            действия <b> (в) По переключении кнопок изменяется цвет текста,
+            результаты которых отображаются на 2-форме.</b> Для генерации элементов
+            и вывода результатов использовать свойство innerHTML. Текст задан в
+            скрипте, значения кнопок - в массиве
+          </h3>
+          <form name="firstForm">
+            <div class="input__form">
+            <p>Количество радио-кнопок(до 10):</p>
+            <input class="inp-text" name="param" value="5"/>
+            </div>
+            <input class="btn-nice" type="button" onclick="genForm()" value="Сгенерировать">
+          </form>
+
+          <form name="secondForm"></form>
+        </div>
+      </div>
+      <footer>
+        <p>©2020 Валентинова Юлия Олеговна</p>
+        <p>М8О-108М</p>
+      </footer>
+    </div>
+
+    <script>
+      var text = "She wore blue velvet<br>Bluer than velvet was the night<br>Softer than satin was the light<br>From the stars";
+      var buttonValues = ["#EB9D59","#F55DA4","#745FDE","#5DE9F5","#B7F0B1","#309188","#DB56CD","#5FDED2","#DEC149","#918037",];
+
+      function genForm() {
+        var buttonsNumber = firstForm.param.value;
+        if (isNaN(buttonsNumber)||buttonsNumber>10) {
+          alert("Некорректный ввод");
+          return;
+        }
+        secondForm.innerHTML=`<h2 id="txt">${text}</h2>\n`;
+      
+        buttonValues.slice(0,buttonsNumber).forEach((element, index) => {
+            secondForm.innerHTML+=`<input type="radio" name="radioColor" id="${index}" value="${element}" onchange="changeColor(this)">\n`;
+            secondForm.innerHTML+=`<label for="${index}" style="color: ${element}">${element}</label>\n`;
+        });
+
+      }
+
+      function changeColor(radio) {
+          var text = document.getElementById("txt");
+          text.style.color = radio.value;
+
+      }
+
+      function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+
+    </script>
+  </body>
+</html>

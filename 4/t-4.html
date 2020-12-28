@@ -1,0 +1,207 @@
+<!-- 1: addClass() https://api.jquery.com/addclass/
+2: offsetParent() https://api.jquery.com/offsetparent/
+3: :focus https://api.jquery.com/focus/
+4: css()
+5: append(), appendTo()
+6: children()
+7: bind()
+8: mouseenter()
+9: select()
+10: delay()
+Валентинова Юлия Олеговна М8О-108М
+  https://juliavav.github.io/
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Title</title>
+    <link rel="stylesheet" href="t-4.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/c1bb4bfe54.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="body__inner">
+      <div class="content">
+        <h1>Лабораторная работа №4</h1>
+        <div class="content__card">
+          <h2>Вариант 4</h2>
+          <table border="1" width="100%" cellpadding="5">
+            <tr>
+              <th>Функция</th>
+              <th>Описание</th>
+              <th>Пример</th>
+            </tr>
+            <tr>
+              <td>addClass()</td>
+              <td>Добавляет класс(ы) каждому выбранному элементу страницы</td>
+              <td><button id="btn-1">Сделать красивой</button></td>
+            </tr>
+            <tr>
+              <td>offsetParent()<br />css()</td>
+              <td>Производит поиск и выбор ближайшего предка элемента, который имеет позиционирование отличное от статичного
+                  <br>
+                  Возвращает/устанвливает значения css-свойств у выбранных элементов страницы
+              </td>
+              <td style="position: relative">
+                <button id="btn-2">Закрасить родителя</button>
+              </td>
+            </tr>
+            <tr>
+              <td>focus()</td>
+              <td>Вызывается или отслеживается JavaScript событие "focus"</td>
+              <td style="position: relative">
+                <button id="btn-3">Фокус</button>
+                <input id="inp-1" type="password" />
+              </td>
+            </tr>
+            <tr>
+              <td>append()</td>
+              <td>Добавляет контент внутрь выбранных элементов в конец, после имеющихся</td>
+              <td>
+                <button id="btn-4">Больше текста</button><br />
+                <span id="p-1">Текст</span>
+              </td>
+            </tr>
+            <tr>
+              <td>children()</td>
+              <td>Возвращает дочерние элементы каждого элемента в наборе совпавших элементов</td>
+              <td>
+                <ul>
+                  <li>Лев</li>
+                  <li>Волк</li>
+                  <li>
+                    Тигр
+                    <ul id="ul-1">
+                      <li>Амурский</li>
+                      <li>Бенгальский</li>
+                      <li>Китайский</li>
+                    </ul>
+                  </li>
+                </ul>
+                <button id="btn-5">Найти тигров</button>
+              </td>
+            </tr>
+            <tr>
+              <td>bind()</td>
+              <td>Прикрепляет обработчик к событию</td>
+              <td>
+                <p id="p-2" style="background-color: #ffb3cc">
+                  Кликните или дабл-кликните тут
+                </p>
+                <span id="span-1"></span>
+              </td>
+            </tr>
+
+            <tr>
+              <td>mouseenter()</td>
+              <td>Привязывает JavaScript обработчик событий "mouseenter" (срабатывает, когда указатель мыши заходит на элемент), или запускает это событие на выбранный элемент.</td>
+              <td>
+                <div class="enter">
+                  <span>mouseenter - </span>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>select()</td>
+              <td>привязывает JavaScript обработчик событий "select" (срабатывает при выделении текста</td>
+              <td>
+                <input value="Выдели меня" style="font-size: 1rem" /><br />
+                <p class="p-3"></p>
+              </td>
+            </tr>
+            <tr>
+              <td>delay()</td>
+              <td>Позволяет установить таймер для задержки выполнения последующих функций, которые следуют за ним в очереди.</td>
+              <td>
+                <button class="first">Отложить на 1000 мс</button>
+                <button class="second">Отложить на "fast"</button>
+                <hr>
+                <div class="delay"></div>
+                <div style="height: 10rem; display: inline-block;"></div>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <footer>
+        <p>©2020 Валентинова Юлия Олеговна</p>
+        <p>М8О-108М</p>
+      </footer>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $("#btn-1").click(function () {
+          $(this).addClass("btn-beauty");
+          $(this).html("Красивая кнопка");
+        });
+
+        $("#btn-2").click(function () {
+          $(this)
+            .offsetParent()
+            .css(
+              "background",
+              "url(https://mk-website-media.s3.amazonaws.com/wp-content/uploads/sites/4/2018/12/29043530/Wallpaper_LoveMae_TinyFlowers-White_1.jpg) repeat-y"
+            );
+        });
+
+        $("#btn-3").click(function () {
+          $("#inp-1").focus();
+        });
+
+        $("#btn-4").click(function () {
+          $("#p-1").append(" Ещё текст");
+        });
+
+        $("#btn-5").click(function () {
+          $("#ul-1").children().css("border", "2px solid rebeccapurple");
+        });
+
+        $("#p-2").bind("click", function (event) {
+          var str = "( " + event.pageX + ", " + event.pageY + " )";
+          $("#span-1").text("Клик на " + str);
+        });
+        $("#p-2").bind("dblclick", function () {
+          var str = "( " + event.pageX + ", " + event.pageY + " )";
+          $("#span-1").text("Дабл-клик на " + str);
+        });
+
+        var enter = 0; // переменная (счетчик возникновения события)
+        $(".enter").mouseenter(function () {
+          // задаем функцию при вхождении указателя мыши в элемент с классом .enter (событие mouseenter)
+          enter++; // инкремент
+          $(".enter span").text("mouseenter - " + enter); // выводим количество срабатываний события
+        });
+
+        var num = 0; // создаем переменную (счетчик)
+        $("input, textarea").select(function () {
+          // задаем функцию при срабатывании события select на элементе  <input>, или <textarea>
+          num++; // инкремент
+          $(".p-3").text("Текст выделен: " + num + " раз"); // добавляем в элемент <p> информацию о количестве срабатываний события select
+        });
+
+        $(document).ready(function () {
+          $(".first").click(function () {
+            // задаем функцию при нажатиии на элемент с классом first
+            $(".delay")
+              .fadeOut() // плавно изменяя прозрачность скрываем все элементы <div>
+              .delay(1000) // устанавливаем задержку 1000 миллисекунд (одна секунда)
+              .fadeIn(); // плавно изменяя прозрачность отображаем все элементы <div>
+          });
+          $(".second").click(function () {
+            // задаем функцию при нажатиии на элемент с классом second
+            $(".delay")
+              .fadeOut() // плавно изменяя прозрачность скрываем все элементы <div>
+              .delay("fast") // устанавливаем задержку 200 миллисекунд (ключевое слово fast)
+              .fadeIn(); // плавно изменяя прозрачность отображаем все элементы <div>
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
